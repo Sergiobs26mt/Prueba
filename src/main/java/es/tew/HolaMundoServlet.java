@@ -15,12 +15,21 @@ public class HolaMundoServlet extends HttpServlet{
 
     @Override
     public void doGet (HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        String nombre = (String) req.getParameter("NombreUsuario");
+
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html");
+
         PrintWriter out = resp.getWriter();
+
         out.println("<HTML>");
         out.println("<HEAD><TITLE>Hola Mundo Actualizado!!!</TITLE></HEAD>");
         out.println("<BODY>");
+
+        if ( nombre != null ) {
+            out.println("<br>Hola "+nombre+"<br>");
+        }
+
         out.println("Bienvenido a mi primera página web!");
         out.println("</BODY></HTML>");
     }
